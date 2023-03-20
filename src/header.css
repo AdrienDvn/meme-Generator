@@ -1,32 +1,26 @@
 .header {
   color: azure;
-  height: 5.5rem;
-  box-shadow: 0px 3px 7px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   /* background: linear-gradient(0.25turn,#e66465, #9198e5); */
   background: linear-gradient(217deg, rgba(170, 0, 255, 0.8), rgba(255,0,0,0) 70.71%),
 			linear-gradient(127deg, rgb(153, 1, 199), rgba(0,255,0,0) 70.71%),
 			linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-  justify-content: space-between;
-}
-.header--title {
   display: flex;
-  margin-left: 3rem;
+  align-items: center;
+  height: 4rem;
+  padding: 1rem;
+}
+
+ .header--title {
+  font-size: 2rem;
+  margin-right: auto;
 }
 
 .header--pic{
-  width: 4.5rem;
-  height: 4.5rem;
-  display: flex;
-  justify-content: center;
+  height: 100%;
   padding-right: 1rem;
-  margin-top: 0.5rem;
+  margin-left: 2rem;
 }
 
 .header--infos {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 5rem;
+  margin-right: 3rem;
 }

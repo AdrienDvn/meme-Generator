@@ -3,19 +3,15 @@ import logo1 from '/Users/adrien/code/BobZiroll/meme-generator/src/troll-face.pn
 export default function Header () {
   return (
     <div className="header">
-      <div className='header--title'>
-        <img src={logo1} alt="" className="header--pic"/>
-        <h1>
-          Meme Generator
-        </h1>
-      </div>
 
+      <img src={logo1} alt="" className="header--pic"/>
+      <h2 className='header--title'>
+        Meme Generator
+      </h2>
+      <h4 className='header--infos'>
+        React Course - Project 3
+      </h4>
 
-      <div className='header--infos'>
-        <h4>
-          React Course - Project 3
-       </h4>
-      </div>
     </div>
   )
 }
