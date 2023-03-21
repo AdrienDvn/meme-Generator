@@ -1,0 +1,46 @@
+/* .form--input {
+  font-family: 'poppins';
+  margin: 2rem;
+  padding: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 300;
+  border-radius: 0.25rem;
+}
+
+.form--btn {
+  color: aliceblue;
+  border-radius: 0.25rem;
+  font-size: 2.5rem;
+  background: linear-gradient(217deg, rgba(170, 0, 255, 0.8), rgba(255,0,0,0) 70.71%),
+			linear-gradient(127deg, rgb(153, 1, 199), rgba(0,255,0,0) 70.71%),
+			linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+} */
+
+main {
+  padding: 3rem;
+}
+
+.form {
+  display: grid;
+  grid-template: 3rem 3rem / 1fr 1fr;
+  gap: 2rem;
+}
+.form--input {
+  font-family: 'poppins';
+  border-radius: 0.5rem;
+  border: 1px solid #D5D4D8;
+  text-indent: 0.5rem;
+}
+
+.form--btn {
+  font-family: 'poppins';
+  grid-column: 1 / -1;
+  background: linear-gradient(217deg, rgba(170, 0, 255, 0.8), rgba(255,0,0,0) 70.71%),
+			linear-gradient(127deg, rgb(153, 1, 199), rgba(0,255,0,0) 70.71%),
+			linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  border-radius: 0.5rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+}
