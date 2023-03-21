@@ -1,12 +1,21 @@
+import memesData from '../memesData.js';
 
 export default function Meme() {
-  function handleClick() {
-    console.log("i was clicked")
+
+  // function handleMouseOver() {
+  //   console.log("i was hovered")
+  // }
+  function getMemeImage() {
+    const memesArray = memesData.data.memes
+    const randomNumber = Math.floor(Math.random()*memesArray.length)
+    const url = memesArray[randomNumber].url
+    console.log(url);
+
   }
 
   return (
     <main >
-        <form className='form'>
+        <div className='form'>
           <input
            className='form--input'
            type="text"
@@ -17,10 +26,8 @@ export default function Meme() {
            type="text"
            placeholder="Bottom text"
            />
-        <button onClick={handleClick} className='form--btn'> Get a new meme image 🖼</button>
-        </form>
+        <button onClick={getMemeImage} /*onMouseOver={handleMouseOver}*/ className='form--btn'> Get a new meme image 🖼</button>
+        </div>
     </main>
   )
 }
-
-
