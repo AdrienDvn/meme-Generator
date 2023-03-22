@@ -5,6 +5,7 @@ export default function Meme() {
   // function handleMouseOver() {
   //   console.log("i was hovered")
   // }
+
    const thingsArray = ["Thing 1", "Thing 2"]
    const things = thingsArray.map((item) => {
     return (
@@ -13,7 +14,6 @@ export default function Meme() {
       </div>
     )
    })
-
 
    function getAnotherThing() {
       thingsArray.push(`Thing ${thingsArray.length + 1 }`);
@@ -27,6 +27,29 @@ export default function Meme() {
   //   console.log(url);
 
   // }
+
+  //state react challenge
+  function greeting(name1) {
+    const date = new Date()
+    const hours = date.getHours()
+    let timeOfDay;
+
+    if (hours > 4 && hours < 12){
+      timeOfDay = "morning";
+    } else if(hours > 12 && hours < 17){
+      timeOfDay = "afternoon";
+    } else if(hours > 17 && hours < 20){
+      timeOfDay = "evening";
+    } else {
+      timeOfDay = "night";
+    }
+    return `Good ${timeOfDay}, ${name1} !`;
+  }
+  greeting("Bob");
+
+
+
+
 
   return (
     <main >
