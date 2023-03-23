@@ -44,3 +44,8 @@ main {
   cursor: pointer;
 
 }
+
+.meme--image {
+  padding-top: 1rem;
+  max-width: 100%;
+}

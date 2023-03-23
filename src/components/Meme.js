@@ -7,27 +7,19 @@ export default function Meme() {
   //   console.log("i was hovered")
   // }
 
-  // function getMemeImage() {
-  //   const memesArray = memesData.data.memes
-  //   const randomNumber = Math.floor(Math.random()*memesArray.length)
-  //   const url = memesArray[randomNumber].url
-  //   console.log(url);
+  //  const thingsArray = ["Thing 1", "Thing 2"]
+  //  const things = thingsArray.map((item) => {
+  //   return (
+  //     <div key={item}>
+  //     <p>{item}</p>
+  //     </div>
+  //   )
+  //  })
 
-  // }
-
-   const thingsArray = ["Thing 1", "Thing 2"]
-   const things = thingsArray.map((item) => {
-    return (
-      <div key={item}>
-      <p>{item}</p>
-      </div>
-    )
-   })
-
-   function getAnotherThing() {
-      thingsArray.push(`Thing ${thingsArray.length + 1 }`);
-      console.log(thingsArray)
-    }
+  //  function getAnotherThing() {
+  //     thingsArray.push(`Thing ${thingsArray.length + 1 }`);
+  //     console.log(thingsArray)
+  //   }
 
     ///////////////////////////////////
     ///////////////////////////////
@@ -59,13 +51,24 @@ const [isImportant, setIsImportant] = React.useState("wooowww")
 
 
 //function to keep track of counts !
-    const [result2, setResult2] = React.useState(0)
+    // const [count, setCount] = React.useState(0)
 
-    function handleClick2 () {
-      setResult2(result2 - 1)
-    }
-    function handleClick3 () {
-      setResult2(result2 + 1)
+    // function add () {
+    //   setCount(prevCount => prevCount + 1)
+    // }
+    // function subtract () {
+    //   setCount(prevCount => prevCount - 1)
+    // }
+
+
+    // Display the image url in the meme generator challenge !
+    const [memeImage, setMemeImage] = React.useState("")
+
+    function getMemeImage() {
+      const memesArray = memesData.data.memes
+      const randomNumber = Math.floor(Math.random()*memesArray.length)
+      const url = memesArray[randomNumber].url
+      setMemeImage(url)
     }
 
   return (
@@ -81,20 +84,22 @@ const [isImportant, setIsImportant] = React.useState("wooowww")
            type="text"
            placeholder="Bottom text"
            />
-        <button /*onClick={handleClick}*/ /*onClick={getAnotherThing}*/ /*onClick={getMemeImage}*/
-        /*onMouseOver={handleMouseOver}*/ className='form--btn'> Get a new meme image 🖼</button>
+        <button /*onClick={handleClick}*/ /*onClick={getAnotherThing}*/ onClick={getMemeImage}
+        /*onMouseOver={handleMouseOver}*/ className='form--btn'> Get a new meme image 🖼
+        </button>
+        </div>
 
         {/* {things} */}
-        <h1>{isImportant}</h1>
+        {/* <h1>{isImportant}</h1> */}
+        <img className='meme--image' src={memeImage}></img>
 
         {/* Counter that keep counts challenge */}
-        <button onClick={handleClick2} className='counter--minus'>-</button>
+        {/* <button onClick={subtract} className='counter--minus'>-</button>
         <div className='counter--count'>
-          <h1>{result2}</h1>
+          <h1>{count}</h1>
         </div>
-        <button onClick={handleClick3}className='counter--minus'>+</button>
+        <button onClick={add}className='counter--minus'>+</button> */}
 
-      </div>
     </main>
   )
 }
