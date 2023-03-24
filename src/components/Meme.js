@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import memesData from '../memesData.js';
 
 export default function Meme() {
@@ -7,14 +7,7 @@ export default function Meme() {
   //   console.log("i was hovered")
   // }
 
-  //  const thingsArray = ["Thing 1", "Thing 2"]
-  //  const things = thingsArray.map((item) => {
-  //   return (
-  //     <div key={item}>
-  //     <p>{item}</p>
-  //     </div>
-  //   )
-  //  })
+
 
   //  function getAnotherThing() {
   //     thingsArray.push(`Thing ${thingsArray.length + 1 }`);
@@ -43,7 +36,7 @@ export default function Meme() {
   // greeting("Bob");
 
 
-const [isImportant, setIsImportant] = React.useState("wooowww")
+const [isImportant, setIsImportant] = useState("wooowww")
 
     function handleClick () {
       setIsImportant("No")
@@ -62,7 +55,7 @@ const [isImportant, setIsImportant] = React.useState("wooowww")
 
 
     // Display the image url in the meme generator challenge !
-    const [memeImage, setMemeImage] = React.useState("")
+    const [memeImage, setMemeImage] = useState("")
 
     function getMemeImage() {
       const memesArray = memesData.data.memes
@@ -71,15 +64,33 @@ const [isImportant, setIsImportant] = React.useState("wooowww")
       setMemeImage(url)
     }
 
+      //////////////////////////////////////////
     //ternary operator state challenge
-    const [isGoingOut, setIsGoingOut] = React.useState(true)
+    const [isGoingOut, setIsGoingOut] = useState(true)
 
-    function flipState() {
-      // console.log("ok");
-      setIsGoingOut(prevSetIsGoingOut => prevSetIsGoingOut = false)
+    // function flipState() {
+    //   // console.log("ok");
+    //   setIsGoingOut(prevState => !prevState)
+    // }
+
+
+    ///////////////////////////////////////////////////////////
+    //Array state challenge
+    // const thingsArray = ["Thing 1", "Thing 2"] devient
+    const [thingsArray, setThingsArray] = useState(["Thing 1 ", " Thing 2"])
+
+    function addItem() {
+      setThingsArray((prevThingsArray)=>{
+        return [...prevThingsArray,`Thing ${prevThingsArray.length + 1}`]
+    })
     }
-    // let answer = isGoingOut? 'yes' : 'no';
-
+  //  const things = thingsArray.map((item) => {
+  //   return (
+  //     <div key={item}>
+  //     <p>{item}</p>
+  //     </div>
+  //   )
+  //  })
 
   return (
     <main >
@@ -97,11 +108,11 @@ const [isImportant, setIsImportant] = React.useState("wooowww")
         <button onClick={getMemeImage} /*onClick={handleClick}*/ /*onClick={getAnotherThing}*/
         /*onMouseOver={handleMouseOver}*/ className='form--btn'> Get a new meme image 🖼
         </button>
-         <button onClick={() => setIsGoingOut(!isGoingOut)} className='counter--minus'>sup</button>
+         <button onClick={() => setIsGoingOut(!isGoingOut)} /*OU ALORS onClick={flipstate} et voir la function plus haut*/className='counter--minus'>wazzaaaaaa?</button>
         <h1>{isGoingOut? 'yes' : 'no'}</h1>
         </div>
-
-        {/* {things} */}
+        <button onClick={addItem} className='counter--minus'>ARRAY Challenge</button>
+        {thingsArray}
         {/* <h1>{isImportant}</h1> */}
         <img className='meme--image' src={memeImage}></img>
 
