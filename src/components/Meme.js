@@ -71,6 +71,16 @@ const [isImportant, setIsImportant] = React.useState("wooowww")
       setMemeImage(url)
     }
 
+    //ternary operator state challenge
+    const [isGoingOut, setIsGoingOut] = React.useState(true)
+
+    function flipState() {
+      // console.log("ok");
+      setIsGoingOut(prevSetIsGoingOut => prevSetIsGoingOut = false)
+    }
+    // let answer = isGoingOut? 'yes' : 'no';
+
+
   return (
     <main >
         <div className='form'>
@@ -84,9 +94,11 @@ const [isImportant, setIsImportant] = React.useState("wooowww")
            type="text"
            placeholder="Bottom text"
            />
-        <button /*onClick={handleClick}*/ /*onClick={getAnotherThing}*/ onClick={getMemeImage}
+        <button onClick={getMemeImage} /*onClick={handleClick}*/ /*onClick={getAnotherThing}*/
         /*onMouseOver={handleMouseOver}*/ className='form--btn'> Get a new meme image 🖼
         </button>
+         <button onClick={() => setIsGoingOut(!isGoingOut)} className='counter--minus'>sup</button>
+        <h1>{isGoingOut? 'yes' : 'no'}</h1>
         </div>
 
         {/* {things} */}
@@ -99,7 +111,6 @@ const [isImportant, setIsImportant] = React.useState("wooowww")
           <h1>{count}</h1>
         </div>
         <button onClick={add}className='counter--minus'>+</button> */}
-
     </main>
   )
 }
