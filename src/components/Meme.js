@@ -80,9 +80,9 @@ const [isImportant, setIsImportant] = useState("wooowww")
     const [thingsArray, setThingsArray] = useState(["Thing 1 ", " Thing 2"])
 
     function addItem() {
-      setThingsArray((prevThingsArray)=>{
-        return [...prevThingsArray,`Thing ${prevThingsArray.length + 1}`]
-    })
+      setThingsArray((prevThingsArray) => {
+        return [...prevThingsArray,`thing + ${thingsArray.length + 1}`]
+      })
     }
   //  const things = thingsArray.map((item) => {
   //   return (
@@ -91,6 +91,22 @@ const [isImportant, setIsImportant] = useState("wooowww")
   //     </div>
   //   )
   //  })
+
+  ///////////////////////////////////////////
+  //////////////////////////////////////////
+  // OBJECT react state challenge
+  let isFavorite
+
+  const [contact, setContact] = useState({
+    firstName: "John",
+    lastName: "Doe",
+    phone : "+33 792 374 892",
+    email: "bobbarker@gmail.com",
+    isFavorite: false,
+  })
+  function toggleFavorite() {
+    console.log("Toggle Favorite")
+  }
 
   return (
     <main >
@@ -108,11 +124,11 @@ const [isImportant, setIsImportant] = useState("wooowww")
         <button onClick={getMemeImage} /*onClick={handleClick}*/ /*onClick={getAnotherThing}*/
         /*onMouseOver={handleMouseOver}*/ className='form--btn'> Get a new meme image 🖼
         </button>
-         <button onClick={() => setIsGoingOut(!isGoingOut)} /*OU ALORS onClick={flipstate} et voir la function plus haut*/className='counter--minus'>wazzaaaaaa?</button>
-        <h1>{isGoingOut? 'yes' : 'no'}</h1>
+      {/* <button onClick={() => setIsGoingOut(!isGoingOut)} /*OU ALORS onClick={flipstate} et voir la function plus haut*//*className='counter--minus'>wazzaaaaaa?</button>*/}
+        {/* <h1>{isGoingOut? 'yes' : 'no'}</h1> */}
         </div>
-        <button onClick={addItem} className='counter--minus'>ARRAY Challenge</button>
-        {thingsArray}
+        {/* <button onClick={addItem} className='counter--minus'>ARRAY Challenge</button> */}
+        {/* {thingsArray} */}
         {/* <h1>{isImportant}</h1> */}
         <img className='meme--image' src={memeImage}></img>
 
@@ -122,6 +138,10 @@ const [isImportant, setIsImportant] = useState("wooowww")
           <h1>{count}</h1>
         </div>
         <button onClick={add}className='counter--minus'>+</button> */}
+        <p>John Doe</p>
+        <p>+33 792 374 892</p>
+        <p>bobbarker@gmail.com</p>
+        <p>{isFavorite? 'yes' : 'no'}</p>
     </main>
   )
 }
