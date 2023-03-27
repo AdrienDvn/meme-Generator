@@ -108,11 +108,20 @@ const [isImportant, setIsImportant] = useState("wooowww")
     isFavorite: false,
   })
 
+  ///////////UPDATING OBJECT STATE/////////////////
   let starIcon = contact.isFavorite? starFull : starEmpty;
   // let starIcon = contact.isFavorite? "star--full.jpg" : "star--empty.jpg"
+
   function toggleFavorite() {
-    console.log("Toggle Favorite")
+    // console.log("Toggle Favorite")
+    setContact(prevContact => {return {
+      ...prevContact,
+      isFavorite : !prevContact.isFavorite
+    }})
   }
+
+
+
 
   return (
     <main >
@@ -148,7 +157,7 @@ const [isImportant, setIsImportant] = useState("wooowww")
         <p>{contact.phone}</p>
         <p>{contact.email}</p>
 
-        <img src={starIcon} alt=""/>
+        <img src={starIcon} onClick={toggleFavorite}alt=""/>
         {/* <img src={`../${starIcon}`} alt=""/> */}
     </main>
   )
