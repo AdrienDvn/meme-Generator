@@ -6,44 +6,11 @@ import starFull from '../star--full.png';
 
 export default function Meme() {
 
-  // function handleMouseOver() {
-  //   console.log("i was hovered")
-  // }
-
-
 
   //  function getAnotherThing() {
   //     thingsArray.push(`Thing ${thingsArray.length + 1 }`);
   //     console.log(thingsArray)
   //   }
-
-    ///////////////////////////////////
-    ///////////////////////////////
-  //state react challenge
-  // function greeting(name1) {
-  //   const date = new Date()
-  //   const hours = date.getHours()
-  //   let timeOfDay;
-
-  //   if (hours > 4 && hours < 12){
-  //     timeOfDay = "morning";
-  //   } else if(hours > 12 && hours < 17){
-  //     timeOfDay = "afternoon";
-  //   } else if(hours > 17 && hours < 20){
-  //     timeOfDay = "evening";
-  //   } else {
-  //     timeOfDay = "night";
-  //   }
-  //   return `Good ${timeOfDay}, ${name1} !`;
-  // }
-  // greeting("Bob");
-
-
-const [isImportant, setIsImportant] = useState("wooowww")
-
-    function handleClick () {
-      setIsImportant("No")
-    }
 
 
 //function to keep track of counts !
@@ -58,13 +25,24 @@ const [isImportant, setIsImportant] = useState("wooowww")
 
 
     // Display the image url in the meme generator challenge !
+    const [meme, setMeme] = useState({
+      topText:'',
+      bottomText: '',
+      randomImage:'https://i.imgflip.com/1bij.jpg', // image en dur par défaut pour aps que React crash
+    })
+
+    const [allMemeImages, setAllMemeImages] = useState(memesData)
+
     const [memeImage, setMemeImage] = useState("")
 
     function getMemeImage() {
-      const memesArray = memesData.data.memes
+      const memesArray = allMemeImages.data.memes
       const randomNumber = Math.floor(Math.random()*memesArray.length)
       const url = memesArray[randomNumber].url
-      setMemeImage(url)
+      setMeme(prevMeme =>({
+        ...prevMeme,
+        randomImage: url
+      }))
     }
 
       //////////////////////////////////////////
@@ -80,13 +58,13 @@ const [isImportant, setIsImportant] = useState("wooowww")
     ///////////////////////////////////////////////////////////
     //Array state challenge
     // const thingsArray = ["Thing 1", "Thing 2"] devient
-    const [thingsArray, setThingsArray] = useState(["Thing 1 ", " Thing 2"])
+    // const [thingsArray, setThingsArray] = useState(["Thing 1 ", " Thing 2"])
 
-    function addItem() {
-      setThingsArray((prevThingsArray) => {
-        return [...prevThingsArray,`thing + ${thingsArray.length + 1}`]
-      })
-    }
+    // function addItem() {
+    //   setThingsArray((prevThingsArray) => {
+    //     return [...prevThingsArray,`thing + ${thingsArray.length + 1}`]
+    //   })
+    // }
   //  const things = thingsArray.map((item) => {
   //   return (
   //     <div key={item}>
@@ -98,7 +76,6 @@ const [isImportant, setIsImportant] = useState("wooowww")
   ///////////////////////////////////////////
   //////////////////////////////////////////
   // OBJECT react state challenge
-  let isFavorite
 
   const [contact, setContact] = useState({
     firstName: "John",
@@ -120,9 +97,6 @@ const [isImportant, setIsImportant] = useState("wooowww")
     }})
   }
 
-
-
-
   return (
     <main >
         <div className='form'>
@@ -136,7 +110,7 @@ const [isImportant, setIsImportant] = useState("wooowww")
            type="text"
            placeholder="Bottom text"
            />
-        <button onClick={getMemeImage} /*onClick={handleClick}*/ /*onClick={getAnotherThing}*/
+        <button onClick={getMemeImage}
         /*onMouseOver={handleMouseOver}*/ className='form--btn'> Get a new meme image 🖼
         </button>
       {/* <button onClick={() => setIsGoingOut(!isGoingOut)} /*OU ALORS onClick={flipstate} et voir la function plus haut*//*className='counter--minus'>wazzaaaaaa?</button>*/}
@@ -145,7 +119,7 @@ const [isImportant, setIsImportant] = useState("wooowww")
         {/* <button onClick={addItem} className='counter--minus'>ARRAY Challenge</button> */}
         {/* {thingsArray} */}
         {/* <h1>{isImportant}</h1> */}
-        <img className='meme--image' src={memeImage}></img>
+        <img className='meme--image' src={meme.randomImage}></img>
 
         {/* Counter that keep counts challenge */}
         {/* <button onClick={subtract} className='counter--minus'>-</button>
