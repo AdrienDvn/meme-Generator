@@ -138,9 +138,9 @@ const [isImportant, setIsImportant] = useState("wooowww")
           <h1>{count}</h1>
         </div>
         <button onClick={add}className='counter--minus'>+</button> */}
-        <p>John Doe</p>
-        <p>+33 792 374 892</p>
-        <p>bobbarker@gmail.com</p>
+        <p>{contact.firstName} {contact.lastName}</p>
+        <p>{contact.phone}</p>
+        <p>{contact.email}</p>
         <p>{isFavorite? 'yes' : 'no'}</p>
     </main>
   )
