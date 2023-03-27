@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import memesData from '../memesData.js';
 
+import starEmpty from '../star--empty.jpg';
+import starFull from '../star--full.png';
+
 export default function Meme() {
 
   // function handleMouseOver() {
@@ -104,6 +107,9 @@ const [isImportant, setIsImportant] = useState("wooowww")
     email: "bobbarker@gmail.com",
     isFavorite: false,
   })
+
+  let starIcon = contact.isFavorite? starFull : starEmpty;
+  // let starIcon = contact.isFavorite? "star--full.jpg" : "star--empty.jpg"
   function toggleFavorite() {
     console.log("Toggle Favorite")
   }
@@ -141,7 +147,9 @@ const [isImportant, setIsImportant] = useState("wooowww")
         <p>{contact.firstName} {contact.lastName}</p>
         <p>{contact.phone}</p>
         <p>{contact.email}</p>
-        <p>{isFavorite? 'yes' : 'no'}</p>
+
+        <img src={starIcon} alt=""/>
+        {/* <img src={`../${starIcon}`} alt=""/> */}
     </main>
   )
 }
