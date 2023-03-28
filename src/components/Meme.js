@@ -4,6 +4,8 @@ import memesData from '../memesData.js';
 import starEmpty from '../star--empty.jpg';
 import starFull from '../star--full.png';
 
+import Count from '../components/Count.js'
+
 export default function Meme() {
 
 
@@ -14,14 +16,14 @@ export default function Meme() {
 
 
 //function to keep track of counts !
-    // const [count, setCount] = React.useState(0)
+    const [count, setCount] = useState(0)
 
-    // function add () {
-    //   setCount(prevCount => prevCount + 1)
-    // }
-    // function subtract () {
-    //   setCount(prevCount => prevCount - 1)
-    // }
+    function add () {
+      setCount(prevCount => prevCount + 1)
+    }
+    function subtract () {
+      setCount(prevCount => prevCount - 1)
+    }
 
 
     // Display the image url in the meme generator challenge !
@@ -122,11 +124,10 @@ export default function Meme() {
         <img className='meme--image' src={meme.randomImage}></img>
 
         {/* Counter that keep counts challenge */}
-        {/* <button onClick={subtract} className='counter--minus'>-</button>
-        <div className='counter--count'>
-          <h1>{count}</h1>
-        </div>
-        <button onClick={add}className='counter--minus'>+</button> */}
+        <button onClick={subtract} className='counter--minus'>-</button>
+        <Count number={count}/>
+        <button onClick={add}className='counter--minus'>+</button>
+
         <p>{contact.firstName} {contact.lastName}</p>
         <p>{contact.phone}</p>
         <p>{contact.email}</p>
