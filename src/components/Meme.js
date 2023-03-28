@@ -5,6 +5,8 @@ import starEmpty from '../star--empty.jpg';
 import starFull from '../star--full.png';
 
 import Count from '../components/Count.js'
+import Star from '../components/Star.js'
+
 
 export default function Meme() {
 
@@ -91,13 +93,17 @@ export default function Meme() {
   let starIcon = contact.isFavorite? starFull : starEmpty;
   // let starIcon = contact.isFavorite? "star--full.jpg" : "star--empty.jpg"
 
-  function toggleFavorite() {
-    // console.log("Toggle Favorite")
-    setContact(prevContact => {return {
-      ...prevContact,
-      isFavorite : !prevContact.isFavorite
-    }})
-  }
+
+
+
+
+  // function toggleFavorite() {
+  //   // console.log("Toggle Favorite")
+  //   setContact(prevContact => {return {
+  //     ...prevContact,
+  //     isFavorite : !prevContact.isFavorite
+  //   }})
+  // }
 
   return (
     <main >
@@ -132,7 +138,8 @@ export default function Meme() {
         <p>{contact.phone}</p>
         <p>{contact.email}</p>
 
-        <img src={starIcon} onClick={toggleFavorite}alt=""/>
+        <Star isFilled ={contact.isFavorite}/>
+        {/* // <img src={starIcon} onClick={toggleFavorite}alt=""/> */}
         {/* <img src={`../${starIcon}`} alt=""/> */}
     </main>
   )
