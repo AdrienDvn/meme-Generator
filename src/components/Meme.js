@@ -8,7 +8,7 @@ import Count from '../components/Count.js'
 import Star from '../components/Star.js'
 
 
-export default function Meme() {
+export default function Meme(props) {
 
 
   //  function getAnotherThing() {
@@ -101,6 +101,9 @@ export default function Meme() {
     }})
   }
 
+//////////////////////////Passing data challenge///////////////
+// const [user, setUser] = useState('Joe')
+
   return (
     <main >
         <div className='form'>
@@ -137,6 +140,10 @@ export default function Meme() {
         <Star isFilled ={contact.isFavorite} handleClick={toggleFavorite} />
         {/* // <img src={starIcon} onClick={toggleFavorite}alt=""/> */}
         {/* <img src={`../${starIcon}`} alt=""/> */}
+
+        
+        {/* passing state to a parent element challenge */}
+        <p>Current user : {props.user}</p>
     </main>
   )
 }

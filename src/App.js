@@ -1,3 +1,5 @@
+import React, {useState} from 'react';
+
 import './App.css';
 import './header.css';
 import './meme.css';
@@ -7,11 +9,14 @@ import Meme from './components/Meme.js';
 import memesData from './memesData.js';
 
 function App() {
+  ////passing data through state challenge///
+  const [user, setUser] = useState('Joe')
+
 
   return (
     <div className="App">
       <Header />
-      <Meme />
+      <Meme user={''}/>
     </div>
   );
 }
