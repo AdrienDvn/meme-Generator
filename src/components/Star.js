@@ -11,7 +11,7 @@ export default function Star (props){
     <div>
       <img
       src={starIcon}
-
+      onClick={props.handleClick}
       alt="" />
       {/* /* <img src={`../${starIcon}`} alt=""/> */}
     </div>
