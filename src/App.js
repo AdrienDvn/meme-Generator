@@ -10,13 +10,13 @@ import memesData from './memesData.js';
 
 function App() {
   ////passing data through state challenge///
-  const [user, setUser] = useState('Joe')
+  const [user, setUser] = useState('Bobby')
 
 
   return (
     <div className="App">
-      <Header />
-      <Meme user={''}/>
+      <Header user={user}/>
+      <Meme user={user}/>
     </div>
   );
 }
