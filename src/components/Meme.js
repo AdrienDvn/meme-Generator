@@ -128,8 +128,8 @@ export default function Meme(props) {
         {/* <h1>{isImportant}</h1> */}
           <div className='meme-container'>
             <img className='meme--image' src={meme.randomImage}></img>
-            <h2 className='meme--text top'>blabla1</h2>
-            <h2 className='meme--text bottom'>blabla 2</h2>
+            <h2 className='meme--text--top'>blabla1</h2>
+            <h2 className='meme--text--bottom'>blabla 2</h2>
           </div>
 
         {/* Counter that keep counts challenge */}
