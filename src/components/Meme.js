@@ -126,24 +126,28 @@ export default function Meme(props) {
         {/* <button onClick={addItem} className='counter--minus'>ARRAY Challenge</button> */}
         {/* {thingsArray} */}
         {/* <h1>{isImportant}</h1> */}
-        <img className='meme--image' src={meme.randomImage}></img>
+          <div className='meme-container'>
+            <img className='meme--image' src={meme.randomImage}></img>
+            <h2 className='meme--text top'>blabla1</h2>
+            <h2 className='meme--text bottom'>blabla 2</h2>
+          </div>
 
         {/* Counter that keep counts challenge */}
-        <button onClick={subtract} className='counter--minus'>-</button>
+        {/* <button onClick={subtract} className='counter--minus'>-</button>
         <Count number={count}/>
         <button onClick={add}className='counter--minus'>+</button>
 
         <p>{contact.firstName} {contact.lastName}</p>
         <p>{contact.phone}</p>
-        <p>{contact.email}</p>
+        <p>{contact.email}</p> */}
 
-        <Star isFilled ={contact.isFavorite} handleClick={toggleFavorite} />
+        {/* <Star isFilled ={contact.isFavorite} handleClick={toggleFavorite} /> */}
         {/* // <img src={starIcon} onClick={toggleFavorite}alt=""/> */}
         {/* <img src={`../${starIcon}`} alt=""/> */}
 
-        
+
         {/* passing state to a parent element challenge */}
-        <p>Current user : {props.user}</p>
+        {/* <p>Current user : {props.user}</p> */}
     </main>
   )
 }

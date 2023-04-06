@@ -49,3 +49,34 @@ main {
   padding-top: 1rem;
   max-width: 100%;
 }
+
+
+.meme-container {
+  position: relative; /* set the container position to relative */
+  display: inline-block; /* display the container as an inline block */
+}
+
+.meme--text {
+  position: absolute; /* set the text position to absolute */
+  top: 0; /* position the top text at the top of the container */
+  left: 0; /* position the text at the left of the container */
+  width: 100%; /* set the text width to 100% of the container */
+  text-align: center; /* center align the text horizontally */
+  padding: 10px; /* add some padding to the text */
+  color: white; /* set the text color to white */
+  text-shadow: 1px 1px 2px black; /* add a shadow to the text */
+}
+
+/* Style the top text */
+.meme-text h2:first-child {
+  font-size: 5rem; /* set the font size */
+  margin: 0; /* remove the default margin */
+}
+
+/* Style the bottom text */
+.meme-text h2:last-child {
+  font-size: 5rem; /* set the font size */
+  margin: 0; /* remove the default margin */
+  /* position: absolute; set the bottom text position to absolute */
+  bottom: 0; /* position the bottom text at the bottom of the container */
+}
