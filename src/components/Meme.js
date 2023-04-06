@@ -39,13 +39,17 @@ export default function Meme(props) {
 
     const [memeImage, setMemeImage] = useState("")
 
-    function getMemeImage() {
+    function getMemeImage(event) {
+      event.preventdefault()
+      const {name, value} = event.target
+
       const memesArray = allMemeImages.data.memes
       const randomNumber = Math.floor(Math.random()*memesArray.length)
       const url = memesArray[randomNumber].url
       setMeme(prevMeme =>({
         ...prevMeme,
-        randomImage: url
+        randomImage: url,
+        [name]: value
       }))
     }
 
@@ -81,25 +85,25 @@ export default function Meme(props) {
   //////////////////////////////////////////
   // OBJECT react state challenge
 
-  const [contact, setContact] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    phone : "+33 792 374 892",
-    email: "bobbarker@gmail.com",
-    isFavorite: false,
-  })
+  // const [contact, setContact] = useState({
+  //   firstName: "John",
+  //   lastName: "Doe",
+  //   phone : "+33 792 374 892",
+  //   email: "bobbarker@gmail.com",
+  //   isFavorite: false,
+  // })
 
-  ///////////UPDATING OBJECT STATE/////////////////
-  let starIcon = contact.isFavorite? starFull : starEmpty;
-  // let starIcon = contact.isFavorite? "star--full.jpg" : "star--empty.jpg"
+  // ///////////UPDATING OBJECT STATE/////////////////
+  // let starIcon = contact.isFavorite? starFull : starEmpty;
+  // // let starIcon = contact.isFavorite? "star--full.jpg" : "star--empty.jpg"
 
-  function toggleFavorite() {
-    // console.log("Toggle Favorite")
-    setContact(prevContact => {return {
-      ...prevContact,
-      isFavorite : !prevContact.isFavorite
-    }})
-  }
+  // function toggleFavorite() {
+  //   // console.log("Toggle Favorite")
+  //   setContact(prevContact => {return {
+  //     ...prevContact,
+  //     isFavorite : !prevContact.isFavorite
+  //   }})
+  // }
 
 //////////////////////////Passing data challenge///////////////
 // const [user, setUser] = useState('Joe')
@@ -111,11 +115,15 @@ export default function Meme(props) {
            className='form--input'
            type="text"
            placeholder="Top text"
+           name="topText"
+           value={meme.topText}
            />
           <input
            className='form--input'
            type="text"
            placeholder="Bottom text"
+           name="bottomText"
+           value={meme.bottomText}
            />
         <button onClick={getMemeImage}
         /*onMouseOver={handleMouseOver}*/ className='form--btn'> Get a new meme image 🖼
@@ -128,8 +136,8 @@ export default function Meme(props) {
         {/* <h1>{isImportant}</h1> */}
           <div className='meme-container'>
             <img className='meme--image' src={meme.randomImage}></img>
-            <h2 className='meme--text--top'>blabla1</h2>
-            <h2 className='meme--text--bottom'>blabla 2</h2>
+            <h2 className='meme--text--top'>{meme.topText}</h2>
+            <h2 className='meme--text--bottom'>{meme.bottomText}</h2>
           </div>
 
         {/* Counter that keep counts challenge */}
