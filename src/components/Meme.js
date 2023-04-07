@@ -37,19 +37,25 @@ export default function Meme(props) {
 
     const [allMemeImages, setAllMemeImages] = useState(memesData)
 
-    const [memeImage, setMemeImage] = useState("")
+    // const [memeImage, setMemeImage] = useState("")
+    // console.log(meme);
 
-    function getMemeImage(event) {
-      event.preventdefault()
+    function handleChange(event) {
       const {name, value} = event.target
+      setMeme(prevMeme =>({
+        ...prevMeme,
+        [name]: value
+      }))
+      // console.log(event.target.value);
+    }
 
+    function getMemeImage() {
       const memesArray = allMemeImages.data.memes
       const randomNumber = Math.floor(Math.random()*memesArray.length)
       const url = memesArray[randomNumber].url
       setMeme(prevMeme =>({
         ...prevMeme,
-        randomImage: url,
-        [name]: value
+        randomImage: url
       }))
     }
 
@@ -116,6 +122,7 @@ export default function Meme(props) {
            type="text"
            placeholder="Top text"
            name="topText"
+           onChange={handleChange}
            value={meme.topText}
            />
           <input
@@ -123,6 +130,7 @@ export default function Meme(props) {
            type="text"
            placeholder="Bottom text"
            name="bottomText"
+           onChange={handleChange}
            value={meme.bottomText}
            />
         <button onClick={getMemeImage}
