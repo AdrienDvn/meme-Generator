@@ -6,14 +6,14 @@ export default function ApiChallenge() {
 
   const [count, setCount] = useState(0)
 
-  console.log("Component Rendered");
-
-  useEffect(() => {
+  useEffect(function() {
     console.log("Effect ran !");
       fetch("https://swapi.dev/api/people/1")
-      .then(res => res.json()
-      .then(data => setStarWarsData(data)))
+      .then(res => res.json())
+      .then(data => setStarWarsData(data))
   }, [])
+
+  console.log("Component Rendered");
 
 
   return (

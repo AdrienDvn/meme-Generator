@@ -16,8 +16,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header user={user}/>
-      <Meme user={user}/>
+      {/* <Header user={user}/>
+      <Meme user={user}/> */}
       <ApiChallenge/>
     </div>
   );
