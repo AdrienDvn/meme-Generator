@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import memesData from '../memesData.js';
 
 import starEmpty from '../star--empty.jpg';
@@ -35,10 +35,19 @@ export default function Meme(props) {
       randomImage:'https://i.imgflip.com/1bij.jpg', // image en dur par défaut pour aps que React crash
     })
 
-    const [allMemeImages, setAllMemeImages] = useState(memesData)
+    const [allMemes, setAllMemes] = useState({})
 
-    // const [memeImage, setMemeImage] = useState("")
-    // console.log(meme);
+
+  useEffect(() => {
+    console.log("Effect ran !");
+      fetch(`https://api.imgflip.com/get_memes`)
+      .then(res => res.json())
+      .then(data => setAllMemes(data.data.memes))
+      // ça crash ici !! fix the code here, works with data, but not with data.data.memes
+  }, [])
+
+  console.log(allMemes);
+
 
     function handleChange(event) {
       const {name, value} = event.target
@@ -50,7 +59,7 @@ export default function Meme(props) {
     }
 
     function getMemeImage() {
-      const memesArray = allMemeImages.data.memes
+      const memesArray = allMemes.data.memes
       const randomNumber = Math.floor(Math.random()*memesArray.length)
       const url = memesArray[randomNumber].url
       setMeme(prevMeme =>({

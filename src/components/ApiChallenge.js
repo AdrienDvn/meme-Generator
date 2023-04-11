@@ -3,15 +3,14 @@ import React, {useState, useEffect} from 'react'
 export default function ApiChallenge() {
 
   const [starWarsdata, setStarWarsData] = useState({})
+  const [count, setCount] = useState(1)
 
-  const [count, setCount] = useState(0)
-
-  useEffect(function() {
+  useEffect(() => {
     console.log("Effect ran !");
-      fetch("https://swapi.dev/api/people/1")
+      fetch(`https://swapi.dev/api/people/${count}`)
       .then(res => res.json())
       .then(data => setStarWarsData(data))
-  }, [])
+  }, [count])
 
   console.log("Component Rendered");
 
@@ -20,8 +19,7 @@ export default function ApiChallenge() {
     <div>
       <pre>{JSON.stringify(starWarsdata, null, 2)}</pre>
       <h1>the count is {count}</h1>
-      <button onClick={()=> setCount(prevCount => prevCount +1)}>Add</button>
+      <button onClick={()=> setCount(prevCount => prevCount +1)}>Get Next Character</button>
     </div>
   )
-
 }
