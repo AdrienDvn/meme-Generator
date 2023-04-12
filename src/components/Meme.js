@@ -16,7 +16,6 @@ export default function Meme() {
       fetch(`https://api.imgflip.com/get_memes`)
       .then(res => res.json())
       .then(data => setAllMemes(data.data.memes))
-      // ça crash ici !! fix the code here, works with data, but not with data.data.memes
   }, [])
 
     function handleChange(event) {

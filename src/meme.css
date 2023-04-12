@@ -52,6 +52,7 @@ main {
 
 
 .meme-container {
+  margin: 0 auto;
   position: relative; /* set the container position to relative */
   display: inline-block; /* display the container as an inline block */
 }

@@ -23,15 +23,14 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header />
-      <Meme /> */}
+      <Header />
+      <Meme />
       {/* <ApiChallenge/> */}
 
-
-      <button onClick={toggle}>
+      {/* <button onClick={toggle}>
         Toggle WindowTracker
       </button>
-      {show && <WindowTracker />}
+      {show && <WindowTracker />} */}
     </div>
   );
 }
